@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BoardChannel</title>
+    <meta name="description" content="A cool thing made with HyperDev">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Acme&display=swap" rel="stylesheet">
+  </head>
+  
+  <body>
+    <div id="fixed">
+      <div id="boardicon">
+      <h1>
+        BoardChannel
+      </h1>
+    </div>
+    <div class="topnav">
+      <a href="https://anonymous-message-board-eriko.glitch.me/">Home</a>
+      <a class="active" href="https://anonymous-message-board-eriko.glitch.me/create">Create new Thread</a>
+<!--       <a href="https://anonymous-message-board-eriko.glitch.me/delete">Delete a Thread</a>
+      <a href="https://anonymous-message-board-eriko.glitch.me/report">Report a Thread</a> -->
+    </div>
+      
+    </div>
+    
+    <header>
+      <h1>
+        Welcome to the Anonymous Message Board
+      </h1>
+      <h2>
+        Select a thread and join the conversation!
+      </h2>
+    </header>     
+    
+    <div class="forms">
+      <h4>Create a New Thread</h4>
+        <form action="/api/threads/test" method="post" id="newThread">
+          <label for="board1">Thread Name</label>
+          <input type='text' placeholder='board' id='board1' name='board' required=''><br>
+          <label for="textra">Thread Text</label>
+          <textarea type='text' id="textra" rows="4" placeholder='Thread text...' name='text' required=''></textarea><br>
+          <label for="passwordtodelete">Password to Delete</label>
+          <input type='text' id="passwordtodelete" placeholder='password to delete' name='delete_password' required=''><br>
+          <input type="submit" id="submitbutton" value="Submit">
+        </form>
+    </div>
+    <script src="https://code.jquery.com/jquery-2.2.1.min.js"
+            integrity="sha256-gvQgAFzTH6trSrAWoH1iPo9Xc96QxSZ3feW6kem+O00="
+            crossorigin="anonymous"></script>
+    <script>
+
+      $(function() {
+        
+        $('#newThread').submit(function(){
+          var board = $('#board1').val();
+          $(this).attr('action', "/api/threads/" + board);
+        });
+        
+      });
+   </script>
+    
+
+    
+    
+ 
+  </body>
+</html>
